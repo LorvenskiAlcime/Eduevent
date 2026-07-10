@@ -1,0 +1,22 @@
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Dossiers de dépendances (si tu ajoutes npm plus tard)
+node_modules/
+
+# Fichiers de logs
+*.log
+
+# Fichiers temporaires
+*.tmp
+*.bak
+~*
+
+# Fichiers d'environnement (si tu utilises des clés API plus tard)
+.env
+.env.local
