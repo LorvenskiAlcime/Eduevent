@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>À propos — EduEvent</title>
+  <meta name="description" content="Découvrez EduEvent, l'équipe derrière le projet, et contactez-nous pour toute question.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header">
+    <nav class="nav">
+      <a href="index.html" class="nav-logo">
+        <img src="images/logo.png" alt="Logo EduEvent" class="logo-mark">
+        EduEvent
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="evenements.html">Événements</a></li>
+        <li><a href="a-propos.html" class="active">À propos</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="profil.html" class="btn btn-secondary btn-sm">Connexion</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ============ PRÉSENTATION DE LA PLATEFORME ============ -->
+    <section class="page-header">
+      <div class="container about-intro">
+        <span class="eyebrow">À propos d'EduEvent</span>
+        <h1>Tous les événements de ton campus, en un seul endroit</h1>
+        <p>
+          EduEvent est né d'un constat simple : les informations sur les événements du campus
+          (conférences, ateliers, sport, culture, soutenances,ect..) sont éparpillées entre affiches,
+          groupes Facebook,statut WhatsApp et bouche-à-oreille. Notre plateforme centralise tout, pour que chaque
+          étudiant, professeur et membre de l'administration puisse découvrir, filtrer et s'inscrire
+          en quelques clics — sans rien manquer.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ realisateur ============ -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Realisateur</span>
+          <h2>Qui a construit EduEvent</h2>
+          <p>Un projet réalisé  par ALCIME Lorvenski dans le cadre du cours Web Client, FSG — Licence 3.</p>
+        </div>
+
+        <div class="team-grid">
+          <article class="team-card">
+            <img class="team-photo" src="images/events/Lorvensky.jpg" alt="Photo de Lorvensky">
+            <h3 class="team-name">Lorvenski ALCIME</h3>
+            <span class="team-role">Développement Front-End &amp; Structure du projet</span>
+            <p class="team-bio">En charge de l'architecture du site, de l'intégration HTML/CSS et de la logique JavaScript des pages principales.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT + CARTE ============ -->
+    <section class="section" id="contact">
+      <div class="container contact-grid">
+
+        <div class="contact-form-wrap">
+          <span class="eyebrow">Contact</span>
+          <h2>Une question, une suggestion ?</h2>
+          <p class="mt-sm">Écris-nous, l'équipe EduEvent te répond rapidement.</p>
+
+          <form class="contact-form" id="contactForm" novalidate>
+            <div class="form-group" id="contactNameGroup">
+              <label for="contactName">Nom complet</label>
+              <input type="text" id="contactName" name="contactName" placeholder="Ton nom complet">
+              <span class="form-error" id="contactNameError"></span>
+            </div>
+
+            <div class="form-group" id="contactEmailGroup">
+              <label for="contactEmail">Adresse email</label>
+              <input type="email" id="contactEmail" name="contactEmail" placeholder="ton.email@universite.edu">
+              <span class="form-error" id="contactEmailError"></span>
+            </div>
+
+            <div class="form-group" id="contactSubjectGroup">
+              <label for="contactSubject">Sujet</label>
+              <select id="contactSubject" name="contactSubject">
+                <option value="">Choisis un sujet</option>
+                <option value="question">Question générale</option>
+                <option value="bug">Signaler un problème technique</option>
+                <option value="partenariat">Proposer un événement / partenariat</option>
+                <option value="autre">Autre</option>
+              </select>
+              <span class="form-error" id="contactSubjectError"></span>
+            </div>
+
+            <div class="form-group" id="contactMessageGroup">
+              <label for="contactMessage">Message</label>
+              <textarea id="contactMessage" name="contactMessage" placeholder="Ton message..."></textarea>
+              <span class="form-error" id="contactMessageError"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">Envoyer le message</button>
+          </form>
+
+          <p class="contact-success" id="contactSuccess" hidden>
+            ✓ Merci ! Ton message a bien été envoyé, on te répond très vite.
+          </p>
+        </div>
+
+        <div class="map-wrap">
+          <div class="map-simulated" role="img" aria-label="Carte stylisée du campus Henry Christophe">
+            <div class="map-grid-lines"></div>
+            <div class="map-pin map-pin--main">
+              <span class="map-pin-dot"></span>
+              <span class="map-pin-label">CHCL</span>
+            </div>
+            <div class="map-pin map-pin--secondary" style="top: 30%; left: 25%;"></div>
+            <div class="map-pin map-pin--secondary" style="top: 65%; left: 70%;"></div>
+            <div class="map-pin map-pin--secondary" style="top: 20%; left: 75%;"></div>
+          </div>
+          <div class="map-info">
+            <strong>EduEvent — campus Henry Christophe de </strong>
+            <span>Faculté des Sciences et de Génie (FSG)</span>
+            <span>Département Informatique</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="section section--alt" id="faq">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">FAQ</span>
+          <h2>Questions fréquentes</h2>
+          <p>Tout ce qu'il faut savoir pour bien utiliser EduEvent.</p>
+        </div>
+
+        <div class="accordion" id="faqAccordion">
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              <span>Comment m'inscrire à un événement ?</span>
+              <span class="accordion-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion-content">
+              <p>Va sur la page « Événements », trouve celui qui t'intéresse, clique sur « Voir plus » puis remplis le formulaire d'inscription sur la page de détail. Tu reçois une confirmation immédiate.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              <span>Puis-je annuler mon inscription à un événement ?</span>
+              <span class="accordion-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion-content">
+              <p>Oui. Connecte-toi à ton espace étudiant, va dans « Mes événements inscrits » et clique sur « Annuler » à côté de l'événement concerné.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              <span>Que se passe-t-il si un événement est complet ?</span>
+              <span class="accordion-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion-content">
+              <p>Le formulaire d'inscription est désactivé et la page affiche « Complet ». Tu peux contacter l'organisateur indiqué sur la page de l'événement pour savoir s'il existe une liste d'attente.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              <span>EduEvent est-il réservé aux étudiants ?</span>
+              <span class="accordion-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion-content">
+              <p>Non, la plateforme est ouverte à toute la communauté universitaire : étudiants, professeurs et personnel administratif peuvent consulter et s'inscrire aux événements.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              <span>Comment proposer un événement sur EduEvent ?</span>
+              <span class="accordion-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion-content">
+              <p>Utilise le formulaire de contact ci-dessus en choisissant le sujet « Proposer un événement / partenariat » : notre équipe étudie chaque proposition.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">
+            <img src="images/logo.png" alt="Logo EduEvent" class="logo-mark">
+            EduEvent
+          </a>
+          <p>La plateforme qui rassemble tous les événements de votre campus universitaire : conférences, ateliers, sport, culture et soutenances.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Facebook">f</a>
+            <a href="#" aria-label="Instagram">ig</a>
+            <a href="#" aria-label="LinkedIn">in</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="evenements.html">Événements</a></li>
+            <li><a href="profil.html">Espace étudiant</a></li>
+            <li><a href="a-propos.html">À propos</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Catégories</h4>
+          <ul>
+            <li><a href="evenements.html?categorie=conference">Conférences</a></li>
+            <li><a href="evenements.html?categorie=atelier">Ateliers</a></li>
+            <li><a href="evenements.html?categorie=sport">Sport</a></li>
+            <li><a href="evenements.html?categorie=culture">Culture</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:contact@eduevent.campus">contact@eduevent.campus</a></li>
+            <li><a href="a-propos.html#contact">Formulaire de contact</a></li>
+            <li><a href="a-propos.html#faq">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 EduEvent — Projet Final Web client.</span>
+        <span>Réalisée par Lorvenski ALCIME</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

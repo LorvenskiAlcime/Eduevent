@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Détail de l'événement — EduEvent</title>
+  <meta name="description" content="Informations complètes, inscription et témoignages pour cet événement EduEvent.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header">
+    <nav class="nav">
+      <a href="index.html" class="nav-logo">
+        <img src="images/logo.png" alt="Logo EduEvent" class="logo-mark">
+        EduEvent
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="evenements.html" class="active">Événements</a></li>
+        <li><a href="a-propos.html">À propos</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="profil.html" class="btn btn-secondary btn-sm">Connexion</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="detailMain">
+
+    <!-- Affiché tant que l'événement n'est pas trouvé / chargé -->
+    <div class="container" id="detailLoading">
+      <p class="loading-text mt-lg">Chargement de l'événement...</p>
+    </div>
+
+    <!-- Affiché si l'id est invalide ou introuvable -->
+    <div class="container detail-error" id="detailError" hidden>
+      <h2>Événement introuvable</h2>
+      <p>Cet événement n'existe pas ou a été retiré.</p>
+      <a href="evenements.html" class="btn btn-primary mt-md">← Retour à la liste des événements</a>
+    </div>
+
+    <!-- Contenu réel de l'événement, injecté par detail.js -->
+    <article id="detailContent" hidden>
+
+      <!-- ============ BANNIÈRE ============ -->
+      <section class="detail-banner">
+        <img id="detailBannerImg" class="detail-banner-img" src="" alt="">
+        <div class="detail-banner-overlay"></div>
+        <div class="container detail-banner-content">
+          <a href="evenements.html" class="btn-back">← Retour à la liste</a>
+          <span class="eyebrow" id="detailCategorie"></span>
+          <h1 id="detailTitre"></h1>
+        </div>
+      </section>
+
+      <div class="container detail-grid">
+
+        <!-- ============ COLONNE PRINCIPALE ============ -->
+        <div class="detail-main">
+
+          <section class="detail-section">
+            <h2>À propos de l'événement</h2>
+            <p id="detailDescription"></p>
+          </section>
+
+          <section class="detail-section">
+            <h2>Informations</h2>
+            <ul class="detail-infos-list">
+              <li>
+                <span class="detail-info-icon" aria-hidden="true"></span>
+                <div>
+                  <strong>Date</strong>
+                  <span id="detailDate"></span>
+                </div>
+              </li>
+              <li>
+                <span class="detail-info-icon" aria-hidden="true"></span>
+                <div>
+                  <strong>Horaire</strong>
+                  <span id="detailHoraire"></span>
+                </div>
+              </li>
+              <li>
+                <span class="detail-info-icon" aria-hidden="true"></span>
+                <div>
+                  <strong>Lieu</strong>
+                  <span id="detailLieu"></span>
+                </div>
+              </li>
+              <li>
+                <span class="detail-info-icon" aria-hidden="true">🎓</span>
+                <div>
+                  <strong>Organisateur</strong>
+                  <span id="detailOrganisateur"></span>
+                </div>
+              </li>
+            </ul>
+          </section>
+
+          <!-- ============ COMMENTAIRES / TÉMOIGNAGES ============ -->
+          <section class="detail-section" id="commentaires">
+            <h2>Témoignages</h2>
+            <p class="section-subtitle">Ce que les participants des éditions précédentes en disent.</p>
+
+            <ul class="comments-list" id="commentsList"></ul>
+
+            <form class="comment-form" id="commentForm" novalidate>
+              <h3>Laisser un témoignage</h3>
+              <div class="form-row">
+                <div class="form-group" id="commentNameGroup">
+                  <label for="commentName">Nom</label>
+                  <input type="text" id="commentName" name="commentName" placeholder="Ton nom">
+                  <span class="form-error" id="commentNameError"></span>
+                </div>
+                <div class="form-group" id="commentRatingGroup">
+                  <label for="commentRating">Note</label>
+                  <select id="commentRating" name="commentRating">
+                    <option value="5">★★★★★ — Excellent</option>
+                    <option value="4">★★★★☆ — Très bien</option>
+                    <option value="3">★★★☆☆ — Correct</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group" id="commentTextGroup">
+                <label for="commentText">Ton témoignage</label>
+                <textarea id="commentText" name="commentText" placeholder="Partage ton expérience..."></textarea>
+                <span class="form-error" id="commentTextError"></span>
+              </div>
+              <button type="submit" class="btn btn-primary">Publier le témoignage</button>
+            </form>
+          </section>
+
+        </div>
+
+        <!-- ============ COLONNE LATÉRALE (inscription) ============ -->
+        <aside class="detail-sidebar">
+          <div class="registration-card">
+
+            <div class="places-counter">
+              <div class="places-counter-bar">
+                <div class="places-counter-fill" id="placesFill"></div>
+              </div>
+              <span class="places-counter-text" id="placesText"></span>
+            </div>
+
+            <form id="registrationForm" novalidate>
+              <div class="form-group" id="regNameGroup">
+                <label for="regName">Nom complet</label>
+                <input type="text" id="regName" name="regName" placeholder="Ton nom complet">
+                <span class="form-error" id="regNameError"></span>
+              </div>
+
+              <div class="form-group" id="regEmailGroup">
+                <label for="regEmail">Adresse email</label>
+                <input type="email" id="regEmail" name="regEmail" placeholder="ton.email@universite.edu">
+                <span class="form-error" id="regEmailError"></span>
+              </div>
+
+              <div class="form-group" id="regProgramGroup">
+                <label for="regProgram">Faculté / Programme</label>
+                <input type="text" id="regProgram" name="regProgram" placeholder="Ex. Informatique, Licence 3">
+                <span class="form-error" id="regProgramError"></span>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block" id="regSubmitBtn">S'inscrire à l'événement</button>
+            </form>
+
+            <p class="registration-success" id="registrationSuccess" hidden>
+              ✓ Inscription confirmée ! Un email de confirmation t'a été envoyé.
+            </p>
+
+            <p class="registration-full" id="registrationFull" hidden>
+              Cet événement est complet. Tu peux contacter l'organisateur pour la liste d'attente.
+            </p>
+
+            <div class="share-block">
+              <span class="share-label">Partager :</span>
+              <div class="share-links">
+                <a href="#" class="share-link" id="shareFacebook" target="_blank" rel="noopener" aria-label="Partager sur Facebook">f</a>
+                <a href="#" class="share-link" id="shareTwitter" target="_blank" rel="noopener" aria-label="Partager sur X / Twitter">𝕏</a>
+                <a href="#" class="share-link" id="shareWhatsapp" target="_blank" rel="noopener" aria-label="Partager sur WhatsApp">w</a>
+                <a href="#" class="share-link" id="shareEmail" aria-label="Partager par email">@</a>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </article>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">
+            <img src="images/logo.png" alt="Logo EduEvent" class="logo-mark">
+            EduEvent
+          </a>
+          <p>La plateforme qui rassemble tous les événements de votre campus universitaire : conférences, ateliers, sport, culture et soutenances.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Facebook">f</a>
+            <a href="#" aria-label="Instagram">ig</a>
+            <a href="#" aria-label="LinkedIn">in</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="evenements.html">Événements</a></li>
+            <li><a href="profil.html">Espace étudiant</a></li>
+            <li><a href="a-propos.html">À propos</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Catégories</h4>
+          <ul>
+            <li><a href="evenements.html?categorie=conference">Conférences</a></li>
+            <li><a href="evenements.html?categorie=atelier">Ateliers</a></li>
+            <li><a href="evenements.html?categorie=sport">Sport</a></li>
+            <li><a href="evenements.html?categorie=culture">Culture</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:contact@eduevent.campus">contact@eduevent.campus</a></li>
+            <li><a href="a-propos.html#contact">Formulaire de contact</a></li>
+            <li><a href="a-propos.html#faq">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 EduEvent —  Projet Final Web client.</span>
+        <span>Réalisée par Lorvenski ALCIME</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/detail.js"></script>
+</body>
+</html>

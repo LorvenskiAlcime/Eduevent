@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Espace étudiant — EduEvent</title>
+  <meta name="description" content="Connecte-toi pour gérer ton profil étudiant et tes inscriptions aux événements du campus.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header">
+    <nav class="nav">
+      <a href="index.html" class="nav-logo">
+        <img src="images/logo.png" alt="Logo EduEvent" class="logo-mark">
+        EduEvent
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="evenements.html">Événements</a></li>
+        <li><a href="a-propos.html">À propos</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="profil.html" class="btn btn-secondary btn-sm active" id="navProfilLink">Connexion</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ============ VUE : NON CONNECTÉ (connexion / inscription) ============ -->
+    <section class="auth-section" id="authSection">
+      <div class="container auth-container">
+
+        <div class="auth-tabs" role="tablist" aria-label="Connexion ou inscription">
+          <button class="auth-tab is-active" id="tabLogin" role="tab" aria-selected="true">Connexion</button>
+          <button class="auth-tab" id="tabSignup" role="tab" aria-selected="false">Inscription</button>
+        </div>
+
+        <!-- --- Formulaire de connexion --- -->
+        <form class="auth-form" id="loginForm" novalidate>
+          <h1>Bon retour parmi nous </h1>
+          <p class="auth-subtitle">Connecte-toi pour accéder à ton espace étudiant.</p>
+
+          <div class="form-group" id="loginEmailGroup">
+            <label for="loginEmail">Adresse email</label>
+            <input type="email" id="loginEmail" name="loginEmail" placeholder="ton.email@universite.edu">
+            <span class="form-error" id="loginEmailError"></span>
+          </div>
+
+          <div class="form-group" id="loginPasswordGroup">
+            <label for="loginPassword">Mot de passe</label>
+            <input type="password" id="loginPassword" name="loginPassword" placeholder="••••••••">
+            <span class="form-error" id="loginPasswordError"></span>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block">Se connecter</button>
+          <p class="auth-hint">Compte de démonstration : <strong>etudiant@universite.edu</strong> / <strong>campus2026</strong></p>
+        </form>
+
+        <!-- --- Formulaire d'inscription --- -->
+        <form class="auth-form" id="signupForm" novalidate hidden>
+          <h1>Crée ton compte étudiant </h1>
+          <p class="auth-subtitle">Rejoins EduEvent pour t'inscrire aux événements du campus.</p>
+
+          <div class="form-group" id="signupNameGroup">
+            <label for="signupName">Nom complet</label>
+            <input type="text" id="signupName" name="signupName" placeholder="Ton nom complet">
+            <span class="form-error" id="signupNameError"></span>
+          </div>
+
+          <div class="form-group" id="signupEmailGroup">
+            <label for="signupEmail">Adresse email</label>
+            <input type="email" id="signupEmail" name="signupEmail" placeholder="ton.email@universite.edu">
+            <span class="form-error" id="signupEmailError"></span>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group" id="signupFacultyGroup">
+              <label for="signupFaculty">Faculté</label>
+              <input type="text" id="signupFaculty" name="signupFaculty" placeholder="Ex. Informatique">
+              <span class="form-error" id="signupFacultyError"></span>
+            </div>
+            <div class="form-group" id="signupLevelGroup">
+              <label for="signupLevel">Niveau</label>
+              <select id="signupLevel" name="signupLevel">
+                <option value="Licence 1">Licence 1</option>
+                <option value="Licence 2">Licence 2</option>
+                <option value="Licence 3" selected>Licence 3</option>
+                <option value="Master 1">Master 1</option>
+                <option value="Master 2">Master 2</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group" id="signupPasswordGroup">
+            <label for="signupPassword">Mot de passe</label>
+            <input type="password" id="signupPassword" name="signupPassword" placeholder="8 caractères minimum">
+            <span class="form-error" id="signupPasswordError"></span>
+          </div>
+
+          <div class="form-group" id="signupConfirmGroup">
+            <label for="signupConfirm">Confirmer le mot de passe</label>
+            <input type="password" id="signupConfirm" name="signupConfirm" placeholder="Répète ton mot de passe">
+            <span class="form-error" id="signupConfirmError"></span>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block">Créer mon compte</button>
+        </form>
+
+      </div>
+    </section>
+
+    <!-- ============ VUE : CONNECTÉ (profil + inscriptions) ============ -->
+    <section class="profile-section" id="profileSection" hidden>
+      <div class="container">
+
+        <!-- --- Carte profil --- -->
+        <div class="profile-card">
+          <img class="profile-photo" id="profilePhoto" src="" alt="Photo de profil">
+          <div class="profile-info">
+            <h1 id="profileName"></h1>
+            <p class="profile-email" id="profileEmail"></p>
+            <div class="profile-tags">
+              <span class="profile-tag" id="profileFaculty"></span>
+              <span class="profile-tag" id="profileLevel"></span>
+              <span class="profile-tag" id="profileYear"></span>
+            </div>
+          </div>
+          <button class="btn btn-secondary btn-sm" id="logoutBtn">Se déconnecter</button>
+        </div>
+
+        <!-- --- Mes événements inscrits --- -->
+        <div class="section-header mt-lg">
+          <span class="eyebrow">Espace étudiant</span>
+          <h2>Mes événements inscrits</h2>
+          <p>Retrouve ici tous les événements auxquels tu es inscrit·e et gère tes inscriptions.</p>
+        </div>
+
+        <div class="my-events-list" id="myEventsList">
+          <p class="loading-text">Chargement de tes inscriptions...</p>
+        </div>
+
+        <p class="no-registrations" id="noRegistrationsMessage" hidden>
+          Tu n'es inscrit·e à aucun événement pour le moment.
+          <a href="evenements.html">Découvre les événements du campus →</a>
+        </p>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">
+            <img src="images/logo.png" alt="Logo EduEvent" class="logo-mark">
+            EduEvent
+          </a>
+          <p>La plateforme qui rassemble tous les événements de votre campus universitaire : conférences, ateliers, sport, culture, soutenances, ect..</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Facebook">f</a>
+            <a href="#" aria-label="Instagram">ig</a>
+            <a href="#" aria-label="LinkedIn">in</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="evenements.html">Événements</a></li>
+            <li><a href="profil.html">Espace étudiant</a></li>
+            <li><a href="a-propos.html">À propos</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Catégories</h4>
+          <ul>
+            <li><a href="evenements.html?categorie=conference">Conférences</a></li>
+            <li><a href="evenements.html?categorie=atelier">Ateliers</a></li>
+            <li><a href="evenements.html?categorie=sport">Sport</a></li>
+            <li><a href="evenements.html?categorie=culture">Culture</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:contact@eduevent.campus">contact@eduevent.campus</a></li>
+            <li><a href="a-propos.html#contact">Formulaire de contact</a></li>
+            <li><a href="a-propos.html#faq">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 EduEvent —  Projet Final Web client.</span>
+        <span>Réalisée par Lorvenski ALCIME</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/profil.js"></script>
+</body>
+</html>

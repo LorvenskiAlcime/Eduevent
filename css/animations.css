@@ -1,0 +1,66 @@
+/* ==========================================================================
+   EduEvent — animations.css
+   Transitions et keyframes partagées
+   ========================================================================== */
+
+@media (prefers-reduced-motion: no-preference) {
+
+  /* --- Apparition au chargement (hero) --- */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .fade-in-up {
+    animation: fadeInUp 0.7s ease forwards;
+  }
+
+  .fade-in-up.delay-1 { animation-delay: 0.15s; }
+  .fade-in-up.delay-2 { animation-delay: 0.3s; }
+
+  /* --- Apparition au scroll (cartes, sections) --- */
+  .reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .reveal-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* --- Tickets du hero : légère flottaison décalée --- */
+  @keyframes floatTicket {
+    0%, 100% { transform: translateY(0) rotate(var(--tilt, 0deg)); }
+    50% { transform: translateY(-8px) rotate(var(--tilt, 0deg)); }
+  }
+
+  .hero-ticket--1 { --tilt: -2deg; animation: floatTicket 6s ease-in-out infinite; }
+  .hero-ticket--2 { --tilt: 1.5deg; animation: floatTicket 7s ease-in-out infinite; animation-delay: 0.4s; }
+  .hero-ticket--3 { --tilt: -1deg; animation: floatTicket 5.5s ease-in-out infinite; animation-delay: 0.8s; }
+
+  /* --- Accordéon FAQ --- */
+  .accordion-content {
+    transition: max-height 0.3s ease, padding 0.3s ease;
+  }
+
+  /* --- Menu mobile --- */
+  .nav-links {
+    transition: max-height 0.3s ease;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

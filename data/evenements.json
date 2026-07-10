@@ -1,0 +1,256 @@
+{
+  "evenements": [
+    {
+      "id": 1,
+      "titre": "Passation de cycle integrée au professionel FSG",
+      "categorie": "conference",
+      "categorieLabel": "Conférence",
+      "description": "Une activite du marché du travail.",
+      "date": "2026-07-02",
+      "heureDebut": "14:00",
+      "heureFin": "16:30",
+      "lieu": "Auditorium CHCl",
+      "organisateur": "Département Informatique",
+      "image": "images/events/integration.jpg",
+      "placesTotal": 200,
+      "placesRestantes": 47,
+      "vedette": true,
+      "tags": [
+        "FSG",
+        "genie",
+        "technologie"
+      ]
+    },
+    {
+      "id": 2,
+      "titre": "Code fest 2.0",
+      "categorie": "conference",
+      "categorieLabel": "conference",
+      "description": "conference pratique de 3 heures pour apprendre les bases de la conception d'interfaces utilisateur. Apportez votre ordinateur portable. Les participants travailleront sur un mini-projet de A à Z, du wireframe au prototype interactif.",
+      "date": "2027-04-02",
+      "heureDebut": "09:00",
+      "heureFin": "14:00",
+      "lieu": "Auditorium CHCl",
+      "organisateur": "Coding club",
+      "image": "images/events/codefest.jpg",
+      "placesTotal": 230,
+      "placesRestantes": 186,
+      "vedette": true,
+      "tags": [
+        "design",
+        "pratique",
+        "numérique"
+      ]
+    },
+    {
+      "id": 3,
+      "titre": "championnat foot inter-fact",
+      "categorie": "sport",
+      "categorieLabel": "Sport",
+      "description": "Le grand tournoi annuel opposant les facultés du campus. Venez encourager votre équipe ou inscrivez-vous comme joueur remplaçant. Buvettes et animations sur place tout au long de la journée.",
+      "date": "2026-07-05",
+      "heureDebut": "10:00",
+      "heureFin": "18:00",
+      "lieu": "Parc st Raphel",
+      "organisateur": "BVU",
+      "image": "images/events/sport1.jpeg",
+      "placesTotal": 500,
+      "placesRestantes": 312,
+      "vedette": true,
+      "tags": [
+        "sport",
+        "compétition",
+        "équipe"
+      ]
+    },
+    {
+      "id": 4,
+      "titre": "Foire gastronomique 3.0",
+      "categorie": "culture",
+      "categorieLabel": "Culture",
+      "description": "Une soirée mêlant performances musicales, danse traditionnelle et exposition artisanale célébrant la diversité culturelle de la communauté étudiante. Petite restauration locale disponible sur place.",
+      "date": "2022-05-02",
+      "heureDebut": "09:30",
+      "heureFin": "22:00",
+      "lieu": "sous agorah du Campus",
+      "organisateur": "Association des Étudiants FSTEAT",
+      "image": "images/events/foire1.jpeg",
+      "placesTotal": 300,
+      "placesRestantes": 158,
+      "vedette": true,
+      "tags": [
+        "musique",
+        "culture",
+        "diversité"
+      ]
+    },
+    {
+      "id": 5,
+      "titre": "Colloque parole en libertée",
+      "categorie": "colloque",
+      "categorieLabel": "Colloque",
+      "description": "Présentation .",
+      "date": "2026-07-30",
+      "heureDebut": "08:00",
+      "heureFin": "14:00",
+      "lieu": "Auditorium CHCl",
+      "organisateur": "Département science politique",
+      "image": "images/events/colloque1.jpeg",
+      "placesTotal": 150,
+      "placesRestantes": 150,
+      "vedette": false,
+      "tags": [
+        "académique",
+        "parole",
+        "libertée"
+      ]
+    },
+    {
+      "id": 6,
+      "titre": "Concour debat Lapawol",
+      "categorie": "concour",
+      "categorieLabel": "Concour",
+      "description": "Concour de debat inter universitaire.",
+      "date": "2026-07-08",
+      "heureDebut": "13:00",
+      "heureFin": "15:00",
+      "lieu": "Agarorah CHCL",
+      "organisateur": "Service d'Orientation Professionnelle",
+      "image": "images/events/debat1.jpeg",
+      "placesTotal": 840,
+      "placesRestantes": 822,
+      "vedette": false,
+      "tags": [
+        "communication",
+        "Lapawol",
+        "debat"
+      ]
+    },
+    {
+      "id": 7,
+      "titre": "journee d'integrations",
+      "categorie": "festival",
+      "categorieLabel": "Festival",
+      "description": "Témoignages d'anciens étudiants devenus fondateurs de start-up. Discussion sur le financement, la création d'entreprise et les ressources disponibles pour les étudiants entrepreneurs du campus.",
+      "date": "2026-07-12",
+      "heureDebut": "15:00",
+      "heureFin": "17:00",
+      "lieu": "Amphithéâtre A, Bâtiment des Sciences",
+      "organisateur": "Incubateur Universitaire",
+      "image": "images/events/conference-entrepreneuriat.jpg",
+      "placesTotal": 180,
+      "placesRestantes": 95,
+      "vedette": false,
+      "tags": [
+        "entrepreneuriat",
+        "carrière",
+        "innovation"
+      ]
+    },
+    {
+      "id": 8,
+      "titre": "Sea-fest 1.0",
+      "categorie": "festival",
+      "categorieLabel": "Festival",
+      "description": "Festival realiser par un plateforme etudiantine appelle etudiant meme.",
+      "date": "2026-06-29",
+      "heureDebut": "09:00",
+      "heureFin": "16:00",
+      "lieu": "fayeton",
+      "organisateur": "plateforme etidyan meme",
+      "image": "images/events/seafest.jpeg",
+      "placesTotal": 664,
+      "placesRestantes": 211,
+      "vedette": false,
+      "tags": [
+        "fest",
+        "journee",
+        "plaisir"
+      ]
+    },
+    {
+      "id": 9,
+      "titre": "Exposition d'Art Étudiant",
+      "categorie": "culture",
+      "categorieLabel": "Culture",
+      "description": "Vernissage et exposition des œuvres réalisées par les étudiants des ateliers d'arts plastiques du campus durant la session. Peinture, sculpture et installations numériques à découvrir.",
+      "date": "2026-07-20",
+      "heureDebut": "11:00",
+      "heureFin": "19:00",
+      "lieu": "Galerie du Bâtiment des Arts",
+      "organisateur": "Atelier d'Arts Plastiques",
+      "image": "images/events/exposition1.jpeg",
+      "placesTotal": 250,
+      "placesRestantes": 250,
+      "vedette": false,
+      "tags": [
+        "art",
+        "exposition",
+        "créativité"
+      ]
+    },
+    {
+      "id": 10,
+      "titre": "Dev-Expo",
+      "categorie": "conference",
+      "categorieLabel": "Conference",
+      "description": "Introduction aux bases de la sécurité informatique : mots de passe, hameçonnage, protection des données personnelles. Démonstrations pratiques et quiz interactif en fin de session.",
+      "date": "2026-06-27",
+      "heureDebut": "10:00",
+      "heureFin": "12:30",
+      "lieu": "Auditorium CHCl",
+      "organisateur": "Club Cybersécurité",
+      "image": "images/events/dev1.jpeg",
+      "placesTotal": 235,
+      "placesRestantes": 10,
+      "vedette": false,
+      "tags": [
+        "technologie",
+        "ai",
+        "web"
+      ]
+    },
+    {
+      "id": 11,
+      "titre": "Defi-vert 3.0",
+      "categorie": "concour",
+      "categorieLabel": "Concour",
+      "description": "championnat de genie realiser par le staff  du departement agronomie.",
+      "date": "2026-06-30",
+      "heureDebut": "16:00",
+      "heureFin": "18:00",
+      "lieu": "Auditorium CHCl",
+      "organisateur": "Association des etudiants agronomie",
+      "image": "images/events/defivert8.jpeg",
+      "placesTotal": 400,
+      "placesRestantes": 200,
+      "vedette": false,
+      "tags": [
+        "genie",
+        "concour",
+        "connaissance"
+      ]
+    },
+    {
+      "id": 12,
+      "titre": "Soutenances de Licence Génie civile",
+      "categorie": "soutenance",
+      "categorieLabel": "Soutenance",
+      "description": "Présentations des mémoires de fin d'études des étudiants de Licence en Génie civile devant un jury composé d'enseignants et de professionnels du secteur.",
+      "date": "2026-07-29",
+      "heureDebut": "08:30",
+      "heureFin": "16:30",
+      "lieu": "laboratoire informatique du campus",
+      "organisateur": "Département science et genie",
+      "image": "images/events/soutenances-master.jpg",
+      "placesTotal": 100,
+      "placesRestantes": 88,
+      "vedette": false,
+      "tags": [
+        "académique",
+        "mémoire",
+        "évaluation"
+      ]
+    }
+  ]
+}

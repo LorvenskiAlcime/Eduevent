@@ -1,0 +1,280 @@
+/* ==========================================================================
+   EduEvent — responsive.css
+   Media queries : tablette et mobile
+   ========================================================================== */
+
+/* ====== Tablette (≤ 1024px) ====== */
+@media (max-width: 1024px) {
+  :root {
+    --fs-3xl: 3rem;
+    --fs-2xl: 2.25rem;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-visual {
+    height: 300px;
+    order: -1;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-md);
+  }
+
+  .footer-brand {
+    grid-column: span 2;
+  }
+
+  .newsletter-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .newsletter-success {
+    grid-column: 1;
+  }
+
+  /* Détail événement : sidebar passe sous le contenu principal,
+     mais le formulaire d'inscription (registration-card) remonte
+     visuellement juste après la bannière grâce à l'ordre grid —
+     l'ordre du HTML/DOM reste inchangé pour les lecteurs d'écran. */
+  .detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-sidebar {
+    order: -1;
+  }
+
+  .registration-card {
+    position: static;
+  }
+
+  .detail-infos-list {
+    grid-template-columns: 1fr;
+  }
+
+  /* À propos */
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ====== Mobile (≤ 768px) ====== */
+@media (max-width: 768px) {
+  :root {
+    --fs-3xl: 2.25rem;
+    --fs-2xl: 1.85rem;
+    --fs-xl: 1.5rem;
+    --space-2xl: 3.5rem;
+    --space-xl: 2.5rem;
+  }
+
+  /* Menu mobile */
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--color-paper);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+    padding: 0 var(--space-md);
+    max-height: 0;
+    overflow: hidden;
+    border-bottom: 1px solid var(--color-beige);
+  }
+
+  .nav-links.is-open {
+    max-height: 320px;
+    padding: var(--space-sm) var(--space-md) var(--space-md);
+  }
+
+  .nav-actions .btn-sm {
+    padding: 0.6rem 1rem;
+  }
+
+  /* Hero */
+  .hero {
+    padding: var(--space-lg) 0 var(--space-xl);
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-visual {
+    height: 260px;
+  }
+
+  .hero-ticket {
+    width: 200px;
+    padding: 0.75rem 1rem;
+  }
+
+  .hero-ticket--1 { right: 10px; top: 0; }
+  .hero-ticket--2 { right: 90px; top: 95px; }
+  .hero-ticket--3 { right: 0; top: 190px; }
+
+  /* Stats */
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-md);
+  }
+
+  .stat-number {
+    font-size: var(--fs-xl);
+  }
+
+  /* Newsletter */
+  .newsletter-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  /* Footer */
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-brand {
+    grid-column: span 1;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* Formulaires génériques */
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  /* Vue liste : repasse en carte empilée verticalement, comme la grille,
+     car une ligne horizontale ne rentre plus à partir de 768px. */
+  .grid-events.is-list-view .ticket-main {
+    flex-direction: column;
+  }
+
+  .grid-events.is-list-view .ticket-image {
+    width: 100%;
+    flex: none;
+    aspect-ratio: 16/10;
+    height: auto;
+  }
+
+  .grid-events.is-list-view .ticket-body {
+    flex-direction: column;
+    align-items: stretch;
+    padding: var(--space-sm) var(--space-sm) var(--space-md);
+  }
+
+  .grid-events.is-list-view .ticket-meta {
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .grid-events.is-list-view .ticket-footer {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+    padding-top: var(--space-sm);
+  }
+
+  /* Détail événement */
+  .detail-banner {
+    height: 260px;
+  }
+
+  .detail-banner-content h1 {
+    font-size: var(--fs-xl);
+  }
+
+  .detail-grid {
+    padding: var(--space-lg) var(--space-sm);
+    gap: var(--space-lg);
+  }
+
+  .registration-card {
+    padding: var(--space-md);
+  }
+
+  .comment-form {
+    padding: var(--space-md);
+  }
+
+  /* Espace étudiant */
+  .auth-section {
+    padding: var(--space-lg) 0;
+  }
+
+  .profile-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .profile-tags {
+    justify-content: center;
+  }
+
+  .my-event-item {
+    flex-wrap: wrap;
+  }
+
+  .my-event-actions {
+    width: 100%;
+    justify-content: flex-end;
+    margin-top: var(--space-xs);
+  }
+
+  /* À propos */
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .map-simulated {
+    height: 220px;
+  }
+
+  .accordion-trigger {
+    padding: var(--space-sm) var(--space-md);
+    font-size: var(--fs-sm);
+  }
+
+  .accordion-content {
+    padding: 0 var(--space-md);
+  }
+}
+
+/* ====== Petit mobile (≤ 420px) ====== */
+@media (max-width: 420px) {
+  .container {
+    padding: 0 var(--space-sm);
+  }
+
+  /* .detail-grid combine .container + .detail-grid : on doit re-déclarer
+     le padding vertical ici, sinon la règle .container ci-dessus (plus
+     tardive dans la cascade) écrase le padding-top/bottom déjà fixé
+     dans le breakpoint 768px, collant le titre à la bannière. */
+  .detail-grid {
+    padding: var(--space-lg) var(--space-sm);
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hero-ticket {
+    width: 165px;
+  }
+}
