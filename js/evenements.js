@@ -1,9 +1,7 @@
-/* ==========================================================================
-   EduEvent — evenements.js
+/*  EduEvent — evenements.js
    Logique de la page evenements.html : recherche, filtres, vue, pagination.
    Dépend des utilitaires partagés définis dans main.js
-   (chargerEvenements, creerCarteEvenement, formaterDate, afficherErreur).
-   ========================================================================== */
+   (chargerEvenements, creerCarteEvenement, formaterDate, afficherErreur).*/
 
 const ETAT = {
   tousLesEvenements: [],
@@ -106,10 +104,8 @@ function initFiltreDate() {
   });
 }
 
-/**
- * Vérifie si une date d'événement (YYYY-MM-DD) correspond au filtre de date sélectionné.
- * Référence : aujourd'hui = 29 juin 2026 (date système).
- */
+//Vérifie si une date d'événement (YYYY-MM-DD) correspond au filtre de date sélectionné.
+ 
 function correspondAuFiltreDate(dateEvenementISO, filtre) {
   if (filtre === 'tous') return true;
 

@@ -1622,28 +1622,30 @@ p {
 }
 
 .map-simulated {
-  position: relative;
+  .map-google {
+  width: 100%;
   height: 320px;
+  border: none;
   border-radius: var(--radius-lg);
-  background: linear-gradient(135deg, var(--color-navy) 0%, #16314f 100%);
-  overflow: hidden;
+}
 }
 
 .map-grid-lines {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px);
-  background-size: 32px 32px;
+  .map-google {
+  width: 100%;
+  height: 320px;
+  border: none;
+  border-radius: var(--radius-lg);
+}
 }
 
 .map-pin {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.3rem;
+  .map-google {
+  width: 100%;
+  height: 320px;
+  border: none;
+  border-radius: var(--radius-lg);
+}
 }
 
 .map-pin--main {

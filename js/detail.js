@@ -10,7 +10,7 @@ const ETAT_DETAIL = {
   commentaires: [],
 };
 
-// Témoignages de démonstration (données statiques, comme attendu pour ce projet académique)
+// Témoignages de démonstration (données statiques)
 const COMMENTAIRES_DEMO = {
   1: [
     { auteur: 'Alexandra M.', note: 5, texte: "Conférence passionnante, les intervenants étaient très clairs sur des sujets complexes." },
@@ -29,9 +29,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   await chargerEtAfficherEvenement();
 });
 
-/* --------------------------------------------------------------------------
-   Chargement de l'événement à partir du paramètre ?id= de l'URL
-   -------------------------------------------------------------------------- */
+
+  // Chargement de l'événement à partir du paramètre ?id= de l'URL
+
 async function chargerEtAfficherEvenement() {
   const params = new URLSearchParams(window.location.search);
   const id = parseInt(params.get('id'), 10);
@@ -63,9 +63,7 @@ async function chargerEtAfficherEvenement() {
   document.title = `${evenement.titre} — EduEvent`;
 }
 
-/* --------------------------------------------------------------------------
-   Remplissage du contenu (bannière, description, infos, places)
-   -------------------------------------------------------------------------- */
+//   Remplissage du contenu (bannière, description, infos, places)
 function remplirContenuEvenement(evt) {
   const banniere = document.getElementById('detailBannerImg');
   banniere.src = evt.image;
@@ -85,9 +83,7 @@ function remplirContenuEvenement(evt) {
   mettreAJourCompteurPlaces(evt);
 }
 
-/* --------------------------------------------------------------------------
-   Compteur de places restantes (barre de progression)
-   -------------------------------------------------------------------------- */
+// Compteur de places restantes (barre de progression)
 function mettreAJourCompteurPlaces(evt) {
   const barre = document.getElementById('placesFill');
   const texte = document.getElementById('placesText');
@@ -108,9 +104,7 @@ function mettreAJourCompteurPlaces(evt) {
       : `Complet (${evt.placesTotal} places)`;
 }
 
-/* --------------------------------------------------------------------------
-   Formulaire d'inscription à l'événement
-   -------------------------------------------------------------------------- */
+//  Formulaire d'inscription à l'événement
 function initFormulaireInscription(evt) {
   const formulaire = document.getElementById('registrationForm');
   const messageSucces = document.getElementById('registrationSuccess');
@@ -186,9 +180,7 @@ function initFormulaireInscription(evt) {
   });
 }
 
-/* --------------------------------------------------------------------------
-   Témoignages / commentaires
-   -------------------------------------------------------------------------- */
+//   Témoignages / commentaires
 function afficherCommentaires() {
   const liste = document.getElementById('commentsList');
 
@@ -213,10 +205,8 @@ function creerCommentaireHTML(commentaire) {
   `;
 }
 
-/**
- * Échappe les caractères HTML pour éviter toute injection via le contenu
- * saisi par l'utilisateur dans le formulaire de témoignage.
- */
+// Échappe les caractères HTML pour éviter toute injection via le contenu
+ //* saisi par l'utilisateur dans le formulaire de témoignage.
 function echapperHTML(texte) {
   const div = document.createElement('div');
   div.textContent = texte;
@@ -271,9 +261,7 @@ function initFormulaireCommentaire() {
   });
 }
 
-/* --------------------------------------------------------------------------
-   Partage sur les réseaux sociaux
-   -------------------------------------------------------------------------- */
+//   Partage sur les réseaux sociaux
 function initLiensPartage(evt) {
   const urlPage = window.location.href;
   const texte = encodeURIComponent(`${evt.titre} — sur EduEvent`);

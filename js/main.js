@@ -6,6 +6,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   initNavToggle();
+  initEtatConnexionNav();
   initFeaturedEvents();
   initStatsCounter();
   initNewsletterForm();
@@ -346,4 +347,21 @@ function initAccordeonFAQ() {
       }
     });
   });
+}
+// met à jour le bouton nav selon l'état de connexion (toutes les pages)
+function initEtatConnexionNav() {
+  const bouton = document.getElementById('navProfilLink');
+  if (!bouton) return;
+
+  try {
+    const utilisateurJSON = localStorage.getItem('eduevent_utilisateur');
+    if (!utilisateurJSON) return;
+
+    const utilisateur = JSON.parse(utilisateurJSON);
+    if (utilisateur && utilisateur.nom) {
+      bouton.textContent = utilisateur.nom.split(' ')[0];
+    }
+  } catch (e) {
+    // localStorage inaccessible ou JSON invalide, on laisse "Connexion"
+  }
 }

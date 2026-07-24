@@ -1,10 +1,10 @@
-/* ==========================================================================
+/*
    EduEvent — profil.js
    Logique de la page profil.html : connexion / inscription, profil étudiant,
    liste des événements inscrits, annulation d'inscription.
    Persistance via localStorage (pas de backend pour ce projet académique).
    Dépend des utilitaires partagés définis dans main.js.
-   ========================================================================== */
+    */
 
 const CLES_STOCKAGE = {
   utilisateur: 'eduevent_utilisateur',
@@ -291,7 +291,7 @@ async function afficherSelonEtatConnexion() {
 }
 
 function remplirCarteProfil(utilisateur) {
-  document.getElementById('profilePhoto').src = utilisateur.photo;
+  document.getElementById('profilePhoto').src = utilisateur.photo || "images/events/Lorvensky.jpg";
   document.getElementById('profileName').textContent = utilisateur.nom;
   document.getElementById('profileEmail').textContent = utilisateur.email;
   document.getElementById('profileFaculty').textContent = utilisateur.faculte;

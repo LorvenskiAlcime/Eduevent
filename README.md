@@ -14,11 +14,11 @@ culturelles et soutenances.
 Le projet est développé entièrement en **HTML5, CSS3 et JavaScript natif (vanilla)**,
 sans aucun framework ni librairie externe, conformément aux exigences du cours.
 
-## 2. Équipe
+## 2. realisateur
 
 | Nom | Rôle |
 |---|---|
-| Lorvensky ALCIME | Développement Front-End & structure du projet Rôle — design, contenu, tests, documentation...|
+| Lorvensky ALCIME | Développement complet du projet Rôle — design, contenu, tests, documentation...|
 
 
 ## 3. Structure du projet

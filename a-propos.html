@@ -26,11 +26,12 @@
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html">Accueil</a></li>
         <li><a href="evenements.html">Événements</a></li>
+        <li><a href="profil.html">Espace étudiant</a></li>
         <li><a href="a-propos.html" class="active">À propos</a></li>
       </ul>
 
       <div class="nav-actions">
-        <a href="profil.html" class="btn btn-secondary btn-sm">Connexion</a>
+        <a href="profil.html" class="btn btn-secondary btn-sm" id="navProfilLink">Connexion</a>
       </div>
     </nav>
   </header>
@@ -65,8 +66,9 @@
           <article class="team-card">
             <img class="team-photo" src="images/events/Lorvensky.jpg" alt="Photo de Lorvensky">
             <h3 class="team-name">Lorvenski ALCIME</h3>
-            <span class="team-role">Développement Front-End &amp; Structure du projet</span>
-            <p class="team-bio">En charge de l'architecture du site, de l'intégration HTML/CSS et de la logique JavaScript des pages principales.</p>
+            <span class="team-role">Etudiant L3 science informatique &amp; passionnée par les technologies modernes</span>
+            <p class="team-bio">Ce projet a été réalisé entièrement par moi-même dans le cadre du projet final du cours de Développement <em>Web Client.</em>
+</p>
           </article>
 
         </div>
@@ -122,20 +124,22 @@
         </div>
 
         <div class="map-wrap">
-          <div class="map-simulated" role="img" aria-label="Carte stylisée du campus Henry Christophe">
-            <div class="map-grid-lines"></div>
-            <div class="map-pin map-pin--main">
-              <span class="map-pin-dot"></span>
-              <span class="map-pin-label">CHCL</span>
-            </div>
-            <div class="map-pin map-pin--secondary" style="top: 30%; left: 25%;"></div>
-            <div class="map-pin map-pin--secondary" style="top: 65%; left: 70%;"></div>
-            <div class="map-pin map-pin--secondary" style="top: 20%; left: 75%;"></div>
-          </div>
+          <iframe 
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3099.886015686521!2d-72.07347504571133!3d19.655115487701888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8eb6ce8cee14f2f3%3A0x393e1286c52e1b74!2sUniversit%C3%A9%20d&#39;%C3%89tat%20d&#39;Ha%C3%AFti%2C%20Campus%20Henri%20Christophe%20de%20Limonade!5e0!3m2!1sen!2sht!4v1784838452430!5m2!1sen!2sht"
+  class="map-google"
+  width="100%"
+  height="320"
+  style="border:0;"
+  allowfullscreen=""
+  loading="lazy"
+  referrerpolicy="strict-origin-when-cross-origin"
+  title="Localisation du Campus FSG">
+</iframe>
+
+          
           <div class="map-info">
-            <strong>EduEvent — campus Henry Christophe de </strong>
-            <span>Faculté des Sciences et de Génie (FSG)</span>
-            <span>Département Informatique</span>
+            <strong>EduEvent — Campus Henry Christophe de Limonade </strong>
+            <span>Universite d'etat d'haiti</span>
           </div>
         </div>
 
