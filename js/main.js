@@ -118,9 +118,6 @@ function creerCarteEvenement(evt) {
           </div>
         </div>
       </div>
-      <div class="ticket-stub">
-        <span class="ticket-stub-label">${evt.categorieLabel}</span>
-      </div>
     </article>
   `;
 }

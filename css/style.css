@@ -420,7 +420,7 @@ p {
 /* --- Ticket d'événement (signature visuelle) --- */
 .ticket-card {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 1fr;
   background-color: var(--color-white);
   border-radius: var(--radius-md);
   overflow: hidden;
@@ -492,41 +492,7 @@ p {
   margin-top: 0.5rem;
 }
 
-/* Le talon perforé, façon vrai billet */
-.ticket-stub {
-  width: 64px;
-  background-color: var(--color-navy);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  border-left: 2px dashed rgba(244, 242, 236, 0.35);
-}
 
-.ticket-stub::before,
-.ticket-stub::after {
-  content: '';
-  position: absolute;
-  width: 18px;
-  height: 18px;
-  background-color: var(--color-paper);
-  border-radius: 50%;
-  left: -9px;
-}
-
-.ticket-stub::before { top: -9px; }
-.ticket-stub::after { bottom: -9px; }
-
-.ticket-stub-label {
-  font-family: var(--font-mono);
-  font-size: var(--fs-xs);
-  font-weight: 600;
-  color: var(--text-on-dark);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-}
 
 /* --- Badge places restantes --- */
 .badge-places {
