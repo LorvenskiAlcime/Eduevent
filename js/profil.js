@@ -166,6 +166,7 @@ function initFormulaireInscriptionCompte() {
   const erreurFaculte = document.getElementById('signupFacultyError');
 
   const champNiveau = document.getElementById('signupLevel');
+  const champPhoto = document.getElementById('signupPhoto');
 
   const champMotDePasse = document.getElementById('signupPassword');
   const groupeMotDePasse = document.getElementById('signupPasswordGroup');
@@ -226,21 +227,53 @@ function initFormulaireInscriptionCompte() {
 
     if (!valide) return;
 
-    const nouveauCompte = {
-      email: champEmail.value.trim(),
-      motDePasse: champMotDePasse.value,
-      nom: champNom.value.trim(),
-      faculte: champFaculte.value.trim(),
-      niveau: champNiveau.value,
-      annee: '2025 – 2026',
-      photo: 'images/avatar-default.jpg',
-    };
+   // si l'utilisateur a choisi une photo, on la convertit en base64
+    // sinon on utilise la photo par défaut
+    const fichierPhoto = champPhoto && champPhoto.files[0];
 
-    comptes.push(nouveauCompte);
-    ecrireJSON(CLES_STOCKAGE.comptes, comptes);
-    ecrireJSON(CLES_STOCKAGE.inscriptions, []); // nouveau compte = aucune inscription
+    if (fichierPhoto) {
+      // vérification taille max 2Mo
+      if (fichierPhoto.size > 2 * 1024 * 1024) {
+        alert('La photo est trop lourde. Maximum 2 Mo.');
+        return;
+      }
 
-    connecterUtilisateur(nouveauCompte);
+      const lecteur = new FileReader();
+      lecteur.onload = function(e) {
+        const nouveauCompte = {
+          email: champEmail.value.trim(),
+          motDePasse: champMotDePasse.value,
+          nom: champNom.value.trim(),
+          faculte: champFaculte.value.trim(),
+          niveau: champNiveau.value,
+          annee: '2025 – 2026',
+          photo: e.target.result, // base64 de la photo
+        };
+
+        comptes.push(nouveauCompte);
+        ecrireJSON(CLES_STOCKAGE.comptes, comptes);
+        ecrireJSON(CLES_STOCKAGE.inscriptions, []);
+        connecterUtilisateur(nouveauCompte);
+      };
+      lecteur.readAsDataURL(fichierPhoto);
+
+    } else {
+      // pas de photo choisie → photo par défaut
+      const nouveauCompte = {
+        email: champEmail.value.trim(),
+        motDePasse: champMotDePasse.value,
+        nom: champNom.value.trim(),
+        faculte: champFaculte.value.trim(),
+        niveau: champNiveau.value,
+        annee: '2025 – 2026',
+        photo: 'images/profil.jpg',
+      };
+
+      comptes.push(nouveauCompte);
+      ecrireJSON(CLES_STOCKAGE.comptes, comptes);
+      ecrireJSON(CLES_STOCKAGE.inscriptions, []);
+      connecterUtilisateur(nouveauCompte);
+    }
   });
 }
 

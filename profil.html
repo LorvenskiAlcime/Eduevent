@@ -97,8 +97,8 @@
                 <option value="Licence 1">Licence 1</option>
                 <option value="Licence 2">Licence 2</option>
                 <option value="Licence 3" selected>Licence 3</option>
-                <option value="Master 1"> Master 1</option>
-                <option value="Master 2">Master 2</option>
+                <option value="Master 1"> Licence 4 </option>
+                <option value="Master 2">Programme MASTER</option>
               </select>
             </div>
           </div>
@@ -113,6 +113,13 @@
             <label for="signupConfirm">Confirmer le mot de passe</label>
             <input type="password" id="signupConfirm" name="signupConfirm" placeholder="Répète ton mot de passe">
             <span class="form-error" id="signupConfirmError"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="signupPhoto">Photo de profil (optionnel)</label>
+            <input type="file" id="signupPhoto" name="signupPhoto" 
+                  accept="image/*">
+            <span class="form-hint">JPG, PNG — max 2 Mo</span>
           </div>
 
           <button type="submit" class="btn btn-primary btn-block">Créer mon compte</button>
