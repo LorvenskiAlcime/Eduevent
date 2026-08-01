@@ -1737,3 +1737,63 @@ input[type="file"]:hover {
   color: var(--text-secondary);
   margin-top: 0.2rem;
 }
+
+/* bouton profil nav */
+.nav-profil-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  border: 1.5px solid var(--color-beige);
+  background-color: var(--color-white);
+  color: var(--color-navy);
+  font-weight: 600;
+  font-size: var(--fs-sm);
+  transition: border-color 0.15s ease;
+}
+
+.nav-profil-btn:hover {
+  border-color: var(--color-navy);
+}
+
+.nav-profil-photo {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: none; /* cachée par défaut, visible seulement si connecté */
+}
+/* modification photo de profil */
+.profile-photo-wrap {
+  position: relative;
+  width: 84px;
+  height: 84px;
+  flex-shrink: 0;
+}
+
+.profile-photo-wrap .profile-photo {
+  width: 100%;
+  height: 100%;
+}
+
+.change-photo-btn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 26px;
+  height: 26px;
+  background-color: var(--color-coral);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  cursor: pointer;
+  border: 2px solid var(--color-white);
+  transition: background-color 0.15s ease;
+}
+
+.change-photo-btn:hover {
+  background-color: var(--color-coral-dark);
+}

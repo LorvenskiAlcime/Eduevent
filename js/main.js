@@ -348,6 +348,8 @@ function initAccordeonFAQ() {
 // met à jour le bouton nav selon l'état de connexion (toutes les pages)
 function initEtatConnexionNav() {
   const bouton = document.getElementById('navProfilLink');
+  const photo = document.getElementById('navProfilPhoto');
+  const texte = document.getElementById('navProfilTexte');
   if (!bouton) return;
 
   try {
@@ -355,10 +357,20 @@ function initEtatConnexionNav() {
     if (!utilisateurJSON) return;
 
     const utilisateur = JSON.parse(utilisateurJSON);
-    if (utilisateur && utilisateur.nom) {
-      bouton.textContent = utilisateur.nom.split(' ')[0];
+    if (!utilisateur || !utilisateur.nom) return;
+
+    // affiche la photo si connecté
+    if (photo) {
+      photo.src = utilisateur.photo || 'images/avatar-default.jpg';
+      photo.style.display = 'block';
     }
+
+    // cache le texte "Connexion" et affiche rien (juste la photo)
+    if (texte) {
+      texte.style.display = 'none';
+    }
+
   } catch (e) {
-    // localStorage inaccessible ou JSON invalide, on laisse "Connexion"
+    // pas connecté, on laisse l'état par défaut
   }
 }

@@ -31,7 +31,10 @@
       </ul>
 
       <div class="nav-actions">
-        <a href="profil.html" class="btn btn-secondary btn-sm" id="navProfilLink">Connexion</a>
+        <a href="profil.html" class="nav-profil-btn" id="navProfilLink">
+  <img src="images/avatar-default.jpg" alt="Profil" class="nav-profil-photo" id="navProfilPhoto">
+  <span id="navProfilTexte">Connexion</span>
+</a>
       </div>
     </nav>
   </header>
@@ -134,7 +137,13 @@
 
         <!-- --- Carte profil --- -->
         <div class="profile-card">
-          <img class="profile-photo" id="profilePhoto" src="images/events/Lorvensky.jpg" alt="Photo de profil">
+        <div class="profile-photo-wrap">
+  <img class="profile-photo" id="profilePhoto" src="images/events/Lorvensky.jpg" alt="Photo de profil">
+  <label for="changePhotoInput" class="change-photo-btn" title="Modifier la photo">
+    📷
+  </label>
+  <input type="file" id="changePhotoInput" accept="image/*" style="display:none">
+</div>
           <div class="profile-info">
             <h1 id="profileName"></h1>
             <p class="profile-email" id="profileEmail"></p>

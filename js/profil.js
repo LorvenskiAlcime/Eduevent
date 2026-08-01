@@ -266,7 +266,7 @@ function initFormulaireInscriptionCompte() {
         faculte: champFaculte.value.trim(),
         niveau: champNiveau.value,
         annee: '2025 – 2026',
-        photo: 'images/profil.jpg',
+        photo: 'images/avatar-default.jpg',
       };
 
       comptes.push(nouveauCompte);
@@ -330,6 +330,7 @@ function remplirCarteProfil(utilisateur) {
   document.getElementById('profileFaculty').textContent = utilisateur.faculte;
   document.getElementById('profileLevel').textContent = utilisateur.niveau;
   document.getElementById('profileYear').textContent = utilisateur.annee;
+  initChangementPhoto();
 }
 
 /* --------------------------------------------------------------------------
@@ -385,4 +386,47 @@ function annulerInscription(idEvenement) {
   ecrireJSON(CLES_STOCKAGE.inscriptions, nouvellesInscriptions);
 
   afficherMesEvenements();
+}
+function initChangementPhoto() {
+  const input = document.getElementById('changePhotoInput');
+  if (!input) return;
+
+  input.addEventListener('change', () => {
+    const fichier = input.files[0];
+    if (!fichier) return;
+
+    // vérification taille max 2Mo
+    if (fichier.size > 2 * 1024 * 1024) {
+      alert('Photo trop lourde. Maximum 2 Mo.');
+      return;
+    }
+
+    const lecteur = new FileReader();
+    lecteur.onload = function(e) {
+      const nouvellePhoto = e.target.result;
+
+      // met à jour l'affichage immédiatement
+      document.getElementById('profilePhoto').src = nouvellePhoto;
+
+      // met à jour la photo dans la nav aussi
+      const navPhoto = document.getElementById('navProfilPhoto');
+      if (navPhoto) navPhoto.src = nouvellePhoto;
+
+      // sauvegarde dans localStorage
+      const utilisateur = lireJSON(CLES_STOCKAGE.utilisateur, null);
+      if (!utilisateur) return;
+
+      utilisateur.photo = nouvellePhoto;
+      ecrireJSON(CLES_STOCKAGE.utilisateur, utilisateur);
+
+      // met à jour aussi dans la liste des comptes
+      const comptes = lireJSON(CLES_STOCKAGE.comptes, []);
+      const index = comptes.findIndex(c => c.email === utilisateur.email);
+      if (index !== -1) {
+        comptes[index].photo = nouvellePhoto;
+        ecrireJSON(CLES_STOCKAGE.comptes, comptes);
+      }
+    };
+    lecteur.readAsDataURL(fichier);
+  });
 }
