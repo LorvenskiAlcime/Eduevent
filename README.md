@@ -29,7 +29,7 @@ EduEvent/
 ├── evenements.html         Liste et recherche des événements
 ├── detail.html             Détail d'un événement + inscription
 ├── profil.html             Espace étudiant (connexion, profil, inscriptions)
-├── a-propos.html           Présentation, équipe, contact, FAQ
+├── a-propos.html           Présentation, realisateur, contact, FAQ
 ├── README.md                Ce fichier
 │
 ├── css/
